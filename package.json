@@ -1,0 +1,25 @@
+{
+	"name": "joyent-schemas",
+	"description": "Joyent JSON Schemas",
+	"version": "0.0.1",
+	"author": "Joyent (joyent.com)",
+	"main": "lib/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/joyent/schemas.git"
+	},
+	"engines": {
+		"node": ">=0.10"
+	},
+	"dependencies": {
+		"assert-plus": "~0.1.4",
+		"jsprim": "~0.5.1",
+		"verror": "~1.4.0"
+	},
+	"devDependencies": {
+		"tap": "0.4.0"
+	},
+	"scripts": {
+		"test": "./node_modules/.bin/tap test/*.test.js"
+	}
+}
