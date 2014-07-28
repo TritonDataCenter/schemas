@@ -17,7 +17,9 @@
 		"verror": "~1.4.0"
 	},
 	"devDependencies": {
-		"tap": "0.4.0"
+		"tap": "0.4.0",
+		"json-schema": "0.2.2",
+		"JSV": "4.0.2"
 	},
 	"scripts": {
 		"test": "./node_modules/.bin/tap test/*.test.js"

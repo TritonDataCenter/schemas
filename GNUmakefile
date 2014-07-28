@@ -5,12 +5,22 @@
 #
 # Files
 #
-JS_FILES	:= $(shell find lib -name '*.js')
+JS_FILES	:= $(shell find lib test -name '*.js')
 JSON_FILES	 = package.json
 JSL_CONF_NODE	 = tools/jsl.node.conf
 JSL_FILES_NODE	 = $(JS_FILES)
 JSSTYLE_FILES	 = $(JS_FILES)
 JSSTYLE_FLAGS	 = -f tools/jsstyle.conf
+
+NODE		?= node
+
+TESTS		 = \
+	tst.cnapi.js \
+	tst.dapi.js \
+	tst.manufacturing.js \
+	tst.vmapi.js
+
+TESTFILES = $(TESTS:%=test/%)
 
 include ./tools/mk/Makefile.defs
 
@@ -21,7 +31,10 @@ include ./tools/mk/Makefile.defs
 all:
 
 .PHONY: test
-test:
+test: $(TESTFILES:%.js=%.tst)
+
+%.tst: %.js
+	$(NODE) $<
 
 include ./tools/mk/Makefile.deps
 include ./tools/mk/Makefile.targ
