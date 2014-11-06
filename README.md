@@ -1,10 +1,12 @@
+<!--
+    Copyright (c) 2014, Joyent, Inc.
+-->
+
 # Joyent Schemas
 
-Repository: <https://github.com/joyent/schemas>
-Browsing: <https://github.com/joyent/schemas>
-Who: Everyone
-Tickets/bugs: <https://devhub.joyent.com/jira/browse/TOOLS>
-
+This repository is part of the Joyent SmartDataCenter project (SDC).  For
+contribution guidelines, issues, and general documentation, visit the main
+[SDC](http://github.com/joyent/sdc) project page.
 
 # Overview
 
