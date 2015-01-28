@@ -18,6 +18,7 @@ TESTS		 = \
 	tst.cnapi.js \
 	tst.dapi.js \
 	tst.manufacturing.js \
+	tst.sdc.js \
 	tst.vmapi.js
 
 TESTFILES = $(TESTS:%=test/%)
