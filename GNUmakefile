@@ -15,6 +15,7 @@ JSSTYLE_FLAGS	 = -f tools/jsstyle.conf
 NODE		?= node
 
 TESTS		 = \
+	tst.cloudapi.js \
 	tst.cnapi.js \
 	tst.dapi.js \
 	tst.manufacturing.js \
