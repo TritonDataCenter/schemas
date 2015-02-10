@@ -1,8 +1,11 @@
 /*
- * Copyright 2015 Joyent, Inc.
+ * Copyright (c) 2015, Joyent, Inc.
  */
 
+var extend = require('xtend');
+var h = require('./helpers');
 var s_sdc = require('../lib/index.js').sdc;
-var mod_jsonschema = require('json-schema');
+var test = require('tape');
 
-console.dir(mod_jsonschema.validate(s_sdc.sdc_app));
+
+test('All sdc schemas', h.validateAll.bind(null, s_sdc));
