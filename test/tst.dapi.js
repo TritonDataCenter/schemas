@@ -1,5 +1,11 @@
-var s_dapi = require('../lib/index.js').dapi;
-var mod_jsonschema = require('json-schema');
+/*
+ * Copyright (c) 2015, Joyent, Inc.
+ */
 
-console.dir(mod_jsonschema.validate(s_dapi.trait));
-console.dir(mod_jsonschema.validate(s_dapi.server));
+var extend = require('xtend');
+var h = require('./helpers');
+var s_dapi = require('../lib/index.js').dapi;
+var test = require('tape');
+
+
+test('All dapi schemas', h.validateAll.bind(null, s_dapi));

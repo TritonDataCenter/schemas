@@ -1,5 +1,11 @@
-var s_mfg = require('../lib/index.js').manufacturing;
-var mod_jsonschema = require('json-schema');
+/*
+ * Copyright (c) 2015, Joyent, Inc.
+ */
 
-console.dir(mod_jsonschema.validate(s_mfg.part));
-console.dir(mod_jsonschema.validate(s_mfg.manufacturers));
+var extend = require('xtend');
+var h = require('./helpers');
+var s_manufacturing = require('../lib/index.js').manufacturing;
+var test = require('tape');
+
+
+test('All manufacturing schemas', h.validateAll.bind(null, s_manufacturing));

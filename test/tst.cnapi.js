@@ -1,4 +1,11 @@
-var s_cnapi = require('../lib/index.js').cnapi;
-var mod_jsonschema = require('json-schema');
+/*
+ * Copyright (c) 2015, Joyent, Inc.
+ */
 
-console.dir(mod_jsonschema.validate(s_cnapi.server));
+var extend = require('xtend');
+var h = require('./helpers');
+var s_cnapi = require('../lib/index.js').cnapi;
+var test = require('tape');
+
+
+test('All cnapi schemas', h.validateAll.bind(null, s_cnapi));

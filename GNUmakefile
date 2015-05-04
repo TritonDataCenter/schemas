@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2014, Joyent, Inc. All rights reserved.
+# Copyright (c) 2015, Joyent, Inc. All rights reserved.
 #
 
 #
@@ -13,6 +13,8 @@ JSSTYLE_FILES	 = $(JS_FILES)
 JSSTYLE_FLAGS	 = -f tools/jsstyle.conf
 
 NODE		?= node
+NPM		?= npm
+TAPE	:= ./node_modules/.bin/tape
 
 TESTS		 = \
 	tst.cloudapi.js \
@@ -35,8 +37,11 @@ all:
 .PHONY: test
 test: $(TESTFILES:%.js=%.tst)
 
-%.tst: %.js
+%.tst: %.js $(TAPE)
 	$(NODE) $<
+
+$(TAPE):
+	$(NPM) install
 
 include ./tools/mk/Makefile.deps
 include ./tools/mk/Makefile.targ
