@@ -89,3 +89,18 @@ test('CreateFabricVLAN', function (t) {
 
 	t.end();
 });
+
+
+test('UpdateConfig', function (t) {
+	var schema = s_cloudapi.UpdateConfig;
+
+	h.expectSingleValidationError(t, schema,
+	    { 'default_network': 'asdf' },
+		'default_network', h.msg.uuid);
+
+	h.expectSuccess(t, schema,
+	    { 'default_network': '47c7466a-1813-470c-8805-0384f399566e' },
+		'default_network', h.msg.uuid);
+
+	t.end();
+});

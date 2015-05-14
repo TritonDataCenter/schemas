@@ -14,7 +14,9 @@ var MESSAGES = {
 	objStr: typeMsg('object', 'string'),
 	strArr: typeMsg('string', 'array'),
 	strInt: typeMsg('string', 'integer'),
-	strObj: typeMsg('string', 'object')
+	strObj: typeMsg('string', 'object'),
+	uuid: 'does not match the regex pattern /^[0-9a-f]{8}-[0-9a-f]{4}' +
+		'-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/'
 };
 
 
@@ -33,6 +35,16 @@ function expectSingleValidationError(t, schema, input, param, errMsg) {
 	expectValidationErrors(t, schema, input, [
 			{ 'property': param, 'message': errMsg }
 		]);
+}
+
+
+/**
+ * Validate using the schema, and expect success
+ */
+function expectSuccess(t, schema, input) {
+	var res = mod_jsonschema.validate(input, schema);
+	t.ok(res.valid, 'valid');
+	t.deepEqual(res.errors, [], 'no errors');
 }
 
 
@@ -73,6 +85,7 @@ module.exports = {
 	errMissing: errMissing,
 	expectValidationErrors: expectValidationErrors,
 	expectSingleValidationError: expectSingleValidationError,
+	expectSuccess: expectSuccess,
 	msg: MESSAGES,
 	validateAll: validateAllSchemas
 };
