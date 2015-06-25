@@ -33,6 +33,7 @@ include ./tools/mk/Makefile.defs
 #
 .PHONY: all
 all:
+	$(NPM) install
 
 .PHONY: test
 test: $(TESTFILES:%.js=%.tst)

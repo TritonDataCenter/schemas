@@ -12,10 +12,11 @@ var MESSAGES = {
 	strArr: typeMsg('string', 'array'),
 	strInt: typeMsg('string', 'integer'),
 	strObj: typeMsg('string', 'object'),
-	/* JSSTYLED */
+	/* BEGIN JSSTYLED */
 	uuid: 'does not match the regex pattern ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$',
-	/* JSSTYLED */
-	v4addr: 'does not match the regex pattern ^(?:(?:\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(?:\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])$'
+	v4addr: 'does not match the regex pattern ^(?:(?:\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(?:\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])$',
+	netname: 'does not match the regex pattern ^[a-zA-Z][a-zA-Z0-9_\\./-]{1,255}$'
+	/* END JSSTYLED */
 };
 
 
