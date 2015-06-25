@@ -7,16 +7,15 @@ var mod_jsonschema = require('json-schema');
 
 
 var MESSAGES = {
-	ip: 'does not match the regex pattern /^(?:(?:\\d|[1-9]\\d' +
-		'|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(?:\\d|[1-9]\\d|1\\d' +
-		'\\d|2[0-4]\\d|25[0-5])$/',
 	missing: 'is missing and it is required',
 	objStr: typeMsg('object', 'string'),
 	strArr: typeMsg('string', 'array'),
 	strInt: typeMsg('string', 'integer'),
 	strObj: typeMsg('string', 'object'),
-	uuid: 'does not match the regex pattern /^[0-9a-f]{8}-[0-9a-f]{4}' +
-		'-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/'
+	/* JSSTYLED */
+	uuid: 'does not match the regex pattern ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$',
+	/* JSSTYLED */
+	v4addr: 'does not match the regex pattern ^(?:(?:\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(?:\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])$'
 };
 
 

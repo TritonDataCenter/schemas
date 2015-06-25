@@ -40,11 +40,11 @@ test('CreateFabricNetwork', function (t) {
 
 	h.expectSingleValidationError(t, schema,
 		extend(baseParams, { 'provision_start_ip': 'a' }),
-		'provision_start_ip', h.msg.ip);
+		'provision_start_ip', h.msg.v4addr);
 
 	h.expectSingleValidationError(t, schema,
 		extend(baseParams, { 'provision_end_ip': 'a' }),
-		'provision_end_ip', h.msg.ip);
+		'provision_end_ip', h.msg.v4addr);
 
 	h.expectSingleValidationError(t, schema,
 		extend(baseParams, { 'resolvers': 'a' }),
