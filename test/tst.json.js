@@ -15,7 +15,7 @@ var base = require('../').base;
 
 function stringifyAndParse(o) {
 	var s = JSON.stringify(o);
-	return JSON.parse(s);
+	return (JSON.parse(s));
 }
 
 
