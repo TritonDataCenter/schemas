@@ -29,7 +29,6 @@ test('CreateFabricNetwork', function (t) {
 		h.errMissing('name'),
 		h.errMissing('provision_end_ip'),
 		h.errMissing('provision_start_ip'),
-		h.errMissing('resolvers'),
 		h.errMissing('subnet'),
 		h.errMissing('vlan_id')
 	]);
