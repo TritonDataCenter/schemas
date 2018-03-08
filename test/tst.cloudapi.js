@@ -60,6 +60,33 @@ test('CreateFabricNetwork', function (t) {
 	t.end();
 });
 
+test('UpdateFabricNetwork', function (t) {
+	var schema = s_cloudapi.UpdateFabricNetwork;
+	var baseParams = {
+		'id': '451640f5-a385-4924-bc3f-a16cf7eacaf2',
+		'name': 'asdf',
+		'vlan_id': 4
+	};
+
+	h.expectValidationErrors(t, schema, {}, [
+		h.errMissing('id'),
+		h.errMissing('vlan_id')
+	]);
+
+	h.expectSingleValidationError(t, schema,
+		extend(baseParams, { 'name': {} }),
+		'name', h.msg.objStr);
+
+	h.expectSingleValidationError(t, schema,
+		extend(baseParams, { 'routes' : 'a' }),
+		'routes', h.msg.strObj);
+
+	h.expectSingleValidationError(t, schema,
+		extend(baseParams, { 'resolvers' : 'a' }),
+		'resolvers', h.msg.strArr);
+
+	t.end();
+});
 
 test('CreateFabricVLAN', function (t) {
 	var schema = s_cloudapi.CreateFabricVLAN;
