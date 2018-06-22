@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Joyent, Inc.
+ * Copyright (c) 2018, Joyent, Inc.
  */
 
 var extend = require('xtend');
@@ -60,6 +60,33 @@ test('CreateFabricNetwork', function (t) {
 	t.end();
 });
 
+test('UpdateFabricNetwork', function (t) {
+	var schema = s_cloudapi.UpdateFabricNetwork;
+	var baseParams = {
+		'id': '451640f5-a385-4924-bc3f-a16cf7eacaf2',
+		'name': 'asdf',
+		'vlan_id': 4
+	};
+
+	h.expectValidationErrors(t, schema, {}, [
+		h.errMissing('id'),
+		h.errMissing('vlan_id')
+	]);
+
+	h.expectSingleValidationError(t, schema,
+		extend(baseParams, { 'name': {} }),
+		'name', h.msg.objStr);
+
+	h.expectSingleValidationError(t, schema,
+		extend(baseParams, { 'routes': 'a' }),
+		'routes', h.msg.strObj);
+
+	h.expectSingleValidationError(t, schema,
+		extend(baseParams, { 'resolvers': 'a' }),
+		'resolvers', h.msg.strArr);
+
+	t.end();
+});
 
 test('CreateFabricVLAN', function (t) {
 	var schema = s_cloudapi.CreateFabricVLAN;
@@ -94,11 +121,11 @@ test('UpdateConfig', function (t) {
 	var schema = s_cloudapi.UpdateConfig;
 
 	h.expectSingleValidationError(t, schema,
-	    { 'default_network': 'asdf' },
+		{ 'default_network': 'asdf' },
 		'default_network', h.msg.uuid);
 
 	h.expectSuccess(t, schema,
-	    { 'default_network': '47c7466a-1813-470c-8805-0384f399566e' },
+	{ 'default_network': '47c7466a-1813-470c-8805-0384f399566e' },
 		'default_network', h.msg.uuid);
 
 	t.end();
